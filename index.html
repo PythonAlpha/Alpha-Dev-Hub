@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Dev Hub</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+#bg{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,#7b2cff55,transparent 20%),
+    radial-gradient(circle at 80% 50%,#00e1ff33,transparent 20%),
+    radial-gradient(circle at 50% 80%,#ff00c833,transparent 20%);
+    z-index:-1;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    backdrop-filter:blur(15px);
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:#00e1ff;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:70px;
+    background:linear-gradient(90deg,#00e1ff,#b700ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:700px;
+    opacity:.8;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(90deg,#00e1ff,#b700ff);
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+}
+
+section{
+    padding:100px 10%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:40px;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.1);
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:rgba(255,255,255,.05);
+    padding:25px;
+    border-radius:20px;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:.7;
+}
+</style>
+</head>
+<body>
+
+<div id="bg"></div>
+
+<nav>
+<div class="logo">ALPHA</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<h1 id="typing"></h1>
+
+<p>
+Futuristic developer portfolio powered by GitHub Pages.
+Showcase projects, skills, images, and anything you create.
+</p>
+
+<button class="btn" onclick="window.open('https://github.com/')">
+My GitHub
+</button>
+</section>
+
+<section id="about">
+<h2 class="title">About Me</h2>
+
+<div class="card">
+<p>
+Welcome to my cyberpunk developer hub.
+I build websites, software, automation tools,
+AI projects, and open-source applications.
+</p>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="title">Top Languages</h2>
+
+<div class="skills">
+
+<div class="card">Python</div>
+<div class="card">JavaScript</div>
+<div class="card">Java</div>
+<div class="card">C#</div>
+<div class="card">C++</div>
+<div class="card">TypeScript</div>
+<div class="card">Go</div>
+<div class="card">Rust</div>
+<div class="card">PHP</div>
+<div class="card">Swift</div>
+
+</div>
+</section>
+
+<section id="projects">
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>AI Assistant</h3>
+<p>Python based AI project.</p>
+</div>
+
+<div class="project">
+<h3>Portfolio Website</h3>
+<p>Modern responsive design.</p>
+</div>
+
+<div class="project">
+<h3>Game Engine</h3>
+<p>Built using C++.</p>
+</div>
+
+<div class="project">
+<h3>Cloud API</h3>
+<p>Backend powered by Go.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Alpha Dev Hub
+</footer>
+
+<script>
+const text = "WELCOME TO ALPHA DEV HUB";
+let i = 0;
+
+function type(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type,100);
+    }
+}
+type();
+
+document.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click',e=>{
+        e.preventDefault();
+        document.querySelector(
+            link.getAttribute('href')
+        ).scrollIntoView({
+            behavior:'smooth'
+        });
+    });
+});
+</script>
+
+</body>
+</html>
